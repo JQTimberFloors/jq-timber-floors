@@ -756,28 +756,31 @@
         <div class="info-row"><div><b>Service Area</b>Fleurieu Peninsula, SA</div></div>
         <div class="info-row"><div><b>ABN</b>89 421 067 249</div></div>
       </div>
-      <form class="fade-up" id="quoteForm">
+      <form class="fade-up" id="quoteForm" action="https://formsubmit.co/qsharkfin@protonmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Quote Request — JQ Timber Floors website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div class="form-row">
           <div>
             <label for="name">Name</label>
-            <input id="name" type="text" placeholder="Your name" required>
+            <input id="name" name="Name" type="text" placeholder="Your name" required>
           </div>
           <div>
             <label for="phone">Phone</label>
-            <input id="phone" type="tel" placeholder="Best number to reach you">
+            <input id="phone" name="Phone" type="tel" placeholder="Best number to reach you">
           </div>
         </div>
         <div>
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@example.com" required>
+          <input id="email" name="Email" type="email" placeholder="you@example.com" required>
         </div>
         <div>
           <label for="suburb">Suburb</label>
-          <input id="suburb" type="text" placeholder="e.g. Victor Harbor">
+          <input id="suburb" name="Suburb" type="text" placeholder="e.g. Victor Harbor">
         </div>
         <div>
           <label for="service">What do you need done?</label>
-          <select id="service">
+          <select id="service" name="Service needed">
             <option>Sanding &amp; refinishing</option>
             <option>Polishing / re-coating</option>
             <option>Restoration &amp; repairs</option>
@@ -787,7 +790,7 @@
         </div>
         <div>
           <label for="message">Tell us about the floor</label>
-          <textarea id="message" placeholder="Room size, timber type if known, current condition..."></textarea>
+          <textarea id="message" name="Details" placeholder="Room size, timber type if known, current condition..."></textarea>
         </div>
         <button type="submit" class="form-submit">Request a Quote</button>
       </form>
@@ -808,35 +811,6 @@
 </footer>
 
 <script>
-  // Quote form -> opens a pre-filled email to qsharkfin@protonmail.com
-  const quoteForm = document.getElementById('quoteForm');
-  if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const email = document.getElementById('email').value;
-      const suburb = document.getElementById('suburb').value;
-      const service = document.getElementById('service').value;
-      const message = document.getElementById('message').value;
-
-      const subject = `Quote Request — ${name || 'Website Enquiry'}`;
-      const body =
-        `Name: ${name}\n` +
-        `Phone: ${phone}\n` +
-        `Email: ${email}\n` +
-        `Suburb: ${suburb}\n` +
-        `Service needed: ${service}\n\n` +
-        `Details:\n${message}`;
-
-      const mailtoLink = `mailto:qsharkfin@protonmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoLink;
-
-      const btn = quoteForm.querySelector('.form-submit');
-      btn.textContent = 'Opening your email app…';
-      setTimeout(() => { btn.textContent = 'Request a Quote'; }, 3000);
-    });
-  }
 
   // In-page smooth scroll for nav & CTA buttons (JS-driven, not plain anchor links,
   // so these always scroll within the page rather than behaving like external links)
