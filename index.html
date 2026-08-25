@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JQ Timber Floors — Fleurieu Peninsula Floor Sanding, Polishing &amp; Restoration</title>
 <meta name="description" content="Specialist timber floor sanding, polishing, restoration and installation across the Fleurieu Peninsula, South Australia. Family-run since 2005.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JQ Timber Floors — Fleurieu Peninsula, SA">
+<meta property="og:description" content="Award-winning timber floor sanding, polishing, restoration and installation. Family-run since 2005.">
+<meta property="og:image" content="https://jqtimberfloors.github.io/jq-timber-floors/og-image.jpg">
+<meta property="og:url" content="https://jqtimberfloors.github.io/jq-timber-floors/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JQ Timber Floors — Fleurieu Peninsula, SA">
+<meta name="twitter:description" content="Award-winning timber floor sanding, polishing, restoration and installation. Family-run since 2005.">
+<meta name="twitter:image" content="https://jqtimberfloors.github.io/jq-timber-floors/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -198,6 +208,7 @@
     overflow:hidden;
     box-shadow:0 30px 70px rgba(0,0,0,0.45);
     border:1px solid rgba(141,169,196,0.25);
+    aspect-ratio:4/5;
   }
   .reveal-frame{
     position:relative;
@@ -243,10 +254,12 @@
   }
   .reveal-label.before{left:16px;}
   .reveal-label.after{right:16px;}
-  .reveal-caption{
-    text-align:center;font-size:0.85rem;color:var(--steel);
-    padding:14px 10px;background:var(--navy);
-    letter-spacing:0.02em;
+  .reveal-hint{
+    position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+    font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;
+    background:rgba(11,37,69,0.75);color:var(--white);
+    padding:6px 14px;border-radius:20px;
+    pointer-events:none;
   }
 
   /* ---------- Sections ---------- */
@@ -352,8 +365,10 @@
     border-radius:4px;
     overflow:hidden;
     box-shadow:0 20px 50px rgba(11,37,69,0.18);
+    position:relative;
   }
   .about-visual svg{width:100%;height:100%;display:block;}
+  .about-visual .reveal-frame{position:absolute;inset:0;aspect-ratio:auto;}
   .about-copy p{margin-bottom:18px;color:#3a3a36;font-size:1rem;}
   .about-copy p:first-of-type::first-letter{
     font-family:var(--font-display);
@@ -543,10 +558,10 @@
   <nav class="nav">
     <div class="brand">JQ <span>Timber Floors</span></div>
     <ul class="nav-links" id="navLinks">
+      <li><a href="javascript:void(0)" data-scroll="about">About</a></li>
       <li><a href="javascript:void(0)" data-scroll="services">Services</a></li>
       <li><a href="javascript:void(0)" data-scroll="work">Our Work</a></li>
       <li><a href="javascript:void(0)" data-scroll="process">Process</a></li>
-      <li><a href="javascript:void(0)" data-scroll="about">About</a></li>
       <li><a href="javascript:void(0)" data-scroll="area">Service Area</a></li>
       <li><a href="javascript:void(0)" data-scroll="contact">Contact</a></li>
     </ul>
@@ -577,6 +592,16 @@
 
     <div>
       <div class="reveal-card fade-up">
+        <img src="about-visual.jpg" alt="Polished timber floor with ocean view, Fleurieu Peninsula" style="width:100%;height:100%;object-fit:cover;border-radius:4px;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual fade-up">
         <div class="reveal-frame" id="revealFrame">
           <div class="reveal-layer reveal-before">
             <img src="reveal-before.jpg" alt="Timber floor before sanding and polishing">
@@ -587,8 +612,20 @@
           <div class="reveal-handle" id="revealHandle"></div>
           <span class="reveal-label before">Before</span>
           <span class="reveal-label after">After</span>
+          <span class="reveal-hint">Drag to compare</span>
         </div>
-        <p class="reveal-caption">Drag to see the difference a proper sand &amp; polish makes</p>
+      </div>
+      <div class="about-copy fade-up">
+        <span class="section-eyebrow">Who's Behind It</span>
+        <h2 style="margin-bottom:22px;">Local, family-run, and still doing the sanding ourselves.</h2>
+        <p>JQ Timber Floors has been supplying, installing, sanding and polishing timber floors across the Fleurieu Peninsula since 2005 — from beach shacks to foreshore mansions, and everything in between. We've worked as timber flooring specialist for South Coast Constructions, with multiple awards to show for it. It's owner-operated by John Quaremba, a licensed second-fix carpenter and Certificate III qualified flooring technician.</p>
+        <p>We're a small crew by choice. It means the person who quotes the job is the person doing the sanding, and the finish on your floor is one we'll stand behind personally.</p>
+        <div class="badge-row">
+          <div class="badge"><b>2018</b> HIA-Stratco Trade Contractor Recognition</div>
+          <div class="badge"><b>2023</b> Floor featured in HIA SA Home of the Year</div>
+          <div class="badge"><b>Cert III</b> Flooring Technician</div>
+          <div class="badge"><b>Licence</b> BLD301449</div>
+        </div>
       </div>
     </div>
   </div>
@@ -617,7 +654,7 @@
       <div class="service-card fade-up">
         <span class="service-num">03</span>
         <h3>Restoration &amp; Repairs</h3>
-        <p>Board replacement, gap filling, stump and joist assessment, and bringing older Fleurieu homes' original timber back to a usable, beautiful standard.</p>
+        <p>Water damage, white ant damage, scratches and board replacement — plus gap filling and insurance work. Bringing older Fleurieu homes' original timber back to a usable, beautiful standard.</p>
       </div>
       <div class="service-card fade-up">
         <span class="service-num">04</span>
@@ -672,29 +709,6 @@
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-visual fade-up">
-        <img src="about-family.jpg" alt="John Quaremba and family, JQ Timber Floors" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;">
-      </div>
-      <div class="about-copy fade-up">
-        <span class="section-eyebrow">Who's Behind It</span>
-        <h2 style="margin-bottom:22px;">Local, family-run, and still doing the sanding ourselves.</h2>
-        <p>JQ Timber Floors has been supplying, installing, sanding and polishing timber floors across the Fleurieu Peninsula since 2005 — from beach shacks to foreshore mansions, and everything in between. We've worked as timber flooring specialist for South Coast Constructions, with multiple awards to show for it. It's owner-operated by John Quaremba, a licensed second-fix carpenter and Certificate III qualified flooring technician, with his son Cruz and daughter Indi alongside him.</p>
-        <p>We're a small crew by choice. It means the person who quotes the job is the person doing the sanding, and the finish on your floor is one we'll stand behind personally.</p>
-        <div class="badge-row">
-          <div class="badge"><b>2018</b> HIA-Stratco Trade Contractor Recognition</div>
-          <div class="badge"><b>2023</b> Floor featured in HIA SA Home of the Year</div>
-          <div class="badge"><b>Cert III</b> Flooring Technician</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="plank-divider light"></div>
-
 <section class="area" id="area">
   <div class="wrap">
     <div class="section-head fade-up">
@@ -716,32 +730,7 @@
   </div>
 </section>
 
-<section class="testimonial" id="landmarks">
-  <div class="wrap">
-    <div class="section-head fade-up" style="margin-bottom:32px;">
-      <span class="section-eyebrow">Notable Projects</span>
-      <h2>Some of the local landmarks we've worked on.</h2>
-    </div>
-    <div class="landmark-list fade-up">
-      <div class="landmark-item">
-        <span class="landmark-dot"></span>
-        <span>Goolwa Centenary Hall</span>
-      </div>
-      <div class="landmark-item">
-        <span class="landmark-dot"></span>
-        <span>Corio Hotel, Goolwa</span>
-      </div>
-      <div class="landmark-item">
-        <span class="landmark-dot"></span>
-        <span>Flying Fish Cafe, Port Elliot</span>
-      </div>
-      <div class="landmark-item">
-        <span class="landmark-dot"></span>
-        <span>Victor Harbor Recreation Centre</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="contact" id="contact">
   <div class="wrap">
