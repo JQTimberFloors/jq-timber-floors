@@ -157,13 +157,24 @@
   .eyebrow::before{
     content:'';width:28px;height:2px;background:var(--raw-oak);display:inline-block;
   }
+  .hero-headline-row{
+    display:flex;align-items:center;gap:22px;
+    margin-bottom:24px;
+  }
+  .hero-headline-photo{
+    width:112px;height:112px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--raw-oak);
+    flex-shrink:0;
+  }
   h1{
     font-family:var(--font-display);
     font-weight:800;
     font-size:clamp(2.4rem, 4.6vw, 3.6rem);
     line-height:1.08;
     letter-spacing:-0.01em;
-    margin-bottom:24px;
+    margin-bottom:0;
   }
   h1 em{
     font-style:italic;
@@ -484,6 +495,25 @@
   }
   .contact-info h2{color:var(--white);}
   .contact-info .section-lede{color:var(--steel);}
+  .contact-photo-wrap{
+    display:flex;align-items:center;gap:18px;
+    margin-top:28px;
+    padding:16px;
+    background:rgba(255,255,255,0.06);
+    border-radius:8px;
+    border:1px solid rgba(141,169,196,0.2);
+  }
+  .contact-photo{
+    width:84px;height:84px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--raw-oak);
+    flex-shrink:0;
+  }
+  .contact-photo-caption{
+    font-size:0.9rem;color:var(--pale);line-height:1.4;
+  }
+  .contact-photo-caption b{color:var(--white);}
   .info-row{
     display:flex;gap:14px;margin-top:22px;font-size:0.95rem;
     border-bottom:1px solid rgba(141,169,196,0.2);
@@ -552,6 +582,7 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 900px){
     .hero-inner{grid-template-columns:1fr;gap:48px;}
+    .hero-headline-photo{width:80px;height:80px;}
     .service-grid{grid-template-columns:repeat(2,1fr);}
     .process-list{grid-template-columns:repeat(2,1fr);}
     .about-grid{grid-template-columns:1fr;}
@@ -632,7 +663,10 @@
   <div class="hero-inner">
     <div>
       <span class="eyebrow">Fleurieu Peninsula, South Australia · Since 2005</span>
-      <h1>Natural beauty.<br><em>Built to last.</em></h1>
+      <div class="hero-headline-row">
+        <img src="john-mid.jpg" alt="John, owner of JQ Timber Floors" class="hero-headline-photo">
+        <h1>Natural beauty.<br><em>Built to last.</em></h1>
+      </div>
       <p class="hero-sub">We manage every stage of the job — sourcing timber through trusted suppliers, coordinating with builders and trades, and delivering a seamless result from start to finish. It's the reason we're award-winning, and why homes across Goolwa, Victor Harbor, Hindmarsh Island and the wider Fleurieu have trusted us since 2005.</p>
       <div class="hero-ctas">
         <a href="javascript:void(0)" data-scroll="contact" class="btn btn-primary">Request a Quote</a>
@@ -840,6 +874,10 @@
         <span class="section-eyebrow" style="color:var(--raw-oak)">Get In Touch</span>
         <h2>Ready to talk about your floors?</h2>
         <p class="section-lede">Tell us a bit about the job and we'll get back to you with a time to come and take a look.</p>
+        <div class="contact-photo-wrap">
+          <img src="john-avatar.jpg" alt="John, owner of JQ Timber Floors" class="contact-photo">
+          <p class="contact-photo-caption">Message me directly — I'll get back to you personally.<br><b>— John</b></p>
+        </div>
         <div class="info-row"><div><b>Phone</b><a href="tel:0415740338" style="color:inherit">0415 740 338</a></div></div>
         <div class="info-row"><div><b>Email</b><a href="mailto:john@jqtimberfloors.com.au" style="color:inherit">john@jqtimberfloors.com.au</a></div></div>
         <div class="info-row"><div><b>Facebook</b>Search "JQ Timber Floors"</div></div>
