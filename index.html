@@ -306,55 +306,18 @@
 
   /* Our Work gallery */
   .work{background:var(--white);}
-  .carousel{
-    position:relative;
+  .work-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  .work-slot{
+    aspect-ratio:4/3;
     border-radius:4px;
     overflow:hidden;
-    box-shadow:0 20px 50px rgba(11,37,69,0.15);
-    background:var(--navy);
-    max-width:820px;
-    margin:0 auto;
+    box-shadow:0 6px 18px rgba(11,37,69,0.08);
   }
-  .carousel-track{
-    display:flex;
-    transition:transform 0.5s cubic-bezier(0.65,0,0.35,1);
-    aspect-ratio:4/3;
-  }
-  .carousel-slide{
-    flex:0 0 100%;
-    height:100%;
-  }
-  .carousel-slide img{
+  .work-slot img{
     width:100%;height:100%;object-fit:cover;display:block;
   }
-  .carousel-arrow{
-    position:absolute;top:50%;transform:translateY(-50%);
-    width:44px;height:44px;border-radius:50%;
-    background:rgba(11,37,69,0.55);
-    border:1px solid rgba(255,255,255,0.35);
-    color:var(--white);
-    font-size:1.6rem;line-height:1;
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;
-    transition:background 0.2s ease;
-    z-index:5;
-  }
-  .carousel-arrow:hover{background:rgba(169,113,63,0.85);}
-  .carousel-arrow.prev{left:16px;}
-  .carousel-arrow.next{right:16px;}
-  .carousel-dots{
-    position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
-    display:flex;gap:8px;
-    z-index:5;
-  }
-  .carousel-dot{
-    width:9px;height:9px;border-radius:50%;
-    background:rgba(255,255,255,0.4);
-    border:none;cursor:pointer;
-    transition:background 0.25s ease, transform 0.25s ease;
-    padding:0;
-  }
-  .carousel-dot.active{background:var(--raw-oak);transform:scale(1.25);}
 
   /* Process */
   .process{background:var(--pale);}
@@ -405,6 +368,14 @@
     font-weight:700;
   }
   .badge-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;}
+  .award-cert-image{
+    max-width:260px;
+    width:100%;
+    margin-top:28px;
+    border-radius:4px;
+    box-shadow:0 12px 32px rgba(11,37,69,0.18);
+    border:1px solid rgba(11,37,69,0.1);
+  }
   .badge{
     border:1px solid rgba(11,37,69,0.15);
     padding:14px 18px;border-radius:4px;
@@ -413,6 +384,46 @@
     background:var(--pale);
   }
   .badge b{color:var(--navy);}
+
+  /* Featured Project (HIA Home of the Year) */
+  .featured-project{background:var(--pale);padding-top:120px;}
+  .project-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
+  }
+  .project-photos{
+    display:grid;gap:16px;
+  }
+  .project-photos img{
+    width:100%;border-radius:4px;
+    box-shadow:0 20px 45px rgba(11,37,69,0.15);
+  }
+  .spec-list{
+    border:1px solid rgba(11,37,69,0.12);
+    border-radius:4px;
+    background:var(--white);
+    margin-bottom:24px;
+    overflow:hidden;
+  }
+  .spec-row{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:14px 20px;
+    border-bottom:1px solid rgba(11,37,69,0.08);
+    font-size:0.92rem;
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-row b{color:var(--navy);font-weight:700;white-space:nowrap;}
+  .spec-row span{color:#4a4a46;text-align:right;}
+  .project-copy p{color:#3a3a36;margin-bottom:16px;font-size:0.98rem;}
+  .project-link{
+    display:inline-block;
+    color:var(--raw-oak);
+    font-weight:600;
+    font-size:0.95rem;
+    border-bottom:1px solid var(--raw-oak);
+    padding-bottom:2px;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .project-link:hover{color:#8f5c30;border-color:#8f5c30;}
 
   /* Service area */
   .area{background:var(--navy);color:var(--white);}
@@ -524,10 +535,10 @@
   @media (max-width: 900px){
     .hero-inner{grid-template-columns:1fr;gap:48px;}
     .service-grid{grid-template-columns:repeat(2,1fr);}
-    .carousel-arrow{width:38px;height:38px;font-size:1.3rem;}
     .process-list{grid-template-columns:repeat(2,1fr);}
     .about-grid{grid-template-columns:1fr;}
     .about-visual{max-width:420px;margin:0 auto;}
+    .project-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
     .form-row{grid-template-columns:1fr;}
   }
@@ -546,7 +557,7 @@
     .nav-cta{display:none;}
     .menu-toggle{display:block;}
     .service-grid{grid-template-columns:1fr;}
-    .carousel-track{aspect-ratio:4/3;}
+    .work-grid{grid-template-columns:1fr;}
     .process-list{grid-template-columns:1fr;}
     .hero-stats{gap:24px;}
     section{padding:64px 0;}
@@ -583,6 +594,7 @@
   <nav class="nav">
     <div class="brand">JQ <span>Timber Floors</span></div>
     <ul class="nav-links" id="navLinks">
+      <li><a href="javascript:void(0)" data-scroll="featured-project">Award-Winning Project</a></li>
       <li><a href="javascript:void(0)" data-scroll="about">About</a></li>
       <li><a href="javascript:void(0)" data-scroll="services">Services</a></li>
       <li><a href="javascript:void(0)" data-scroll="work">Our Work</a></li>
@@ -623,6 +635,36 @@
   </div>
 </section>
 
+<section class="featured-project" id="featured-project">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <span class="section-eyebrow">Award-Winning Project</span>
+      <h2>HIA SA Home of the Year, 2023.</h2>
+      <p class="section-lede">A rare project to work on — an engineered floating loft structure, fitted with 19mm Spotted Gum hardwood flooring and matching steps, sanded and polished to the standard that earned this build South Australia's top home award.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-photos fade-up">
+        <img src="hoty-exterior.jpg" alt="Award-winning home exterior, HIA SA Home of the Year 2023" loading="lazy">
+        <img src="hoty-interior.jpg" alt="Award-winning home interior with 19mm Spotted Gum hardwood floor and steps, HIA SA Home of the Year" loading="lazy">
+      </div>
+      <div class="project-copy fade-up">
+        <div class="spec-list">
+          <div class="spec-row"><b>Structure</b><span>Engineered floating loft</span></div>
+          <div class="spec-row"><b>Timber</b><span>19mm Spotted Gum hardwood</span></div>
+          <div class="spec-row"><b>Installation</b><span>Custom laid square edge flooring and matching steps</span></div>
+          <div class="spec-row"><b>Finish</b><span>Sanded and polished, Bona water-based coating system</span></div>
+          <div class="spec-row"><b>Recognition</b><span>HIA SA Home of the Year, 2023</span></div>
+        </div>
+        <p>Working on an engineered floating loft meant this couldn't be treated as a standard install — the flooring and matching steps were both secret-nailed through the tongue and fully glued to the substrate, giving the 19mm solid Spotted Gum the rigidity to handle the structural movement and load of a full living space above. Working against gravity to hold a solid hardwood floor of this weight firm through nailing and adhesive cure, while still delivering the tight, seamless finish the build demanded, made it one of the more technically demanding jobs we've taken on.</p>
+        <p>Finished with Bona's water-based coating system to bring out the natural colour variation in the Spotted Gum without the amber tint solvent-based finishes leave behind.</p>
+        <a href="https://www.southcoastconstructions.com.au/galleries/chiton-3" target="_blank" rel="noopener" class="project-link">View the full project by South Coast Constructions &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="plank-divider"></div>
+
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-grid">
@@ -651,6 +693,7 @@
           <div class="badge"><b>Cert III</b> Flooring Technician</div>
           <div class="badge"><b>Licence</b> BLD301449</div>
         </div>
+        <img src="hia-award-cert.jpg" alt="HIA-Stratco Trade Contractor Recognition Award, 2018" class="award-cert-image">
       </div>
     </div>
   </div>
@@ -696,18 +739,13 @@
       <span class="section-eyebrow">Our Work</span>
       <h2>Recent jobs across the Fleurieu.</h2>
     </div>
-    <div class="carousel fade-up" id="workCarousel">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide"><img src="work-1.jpg" alt="Multi-tone timber floorboards freshly sanded" loading="lazy"></div>
-        <div class="carousel-slide"><img src="work-2.jpg" alt="Polished timber floor in open-plan kitchen" loading="lazy"></div>
-        <div class="carousel-slide"><img src="work-3.jpg" alt="Timber floor sanding before and after" loading="lazy"></div>
-        <div class="carousel-slide"><img src="work-4.jpg" alt="Finished timber floor in kitchen and hallway" loading="lazy"></div>
-        <div class="carousel-slide"><img src="work-5.jpg" alt="Polished herringbone parquet timber floor" loading="lazy"></div>
-        <div class="carousel-slide"><img src="work-6.jpg" alt="Freshly coated glossy timber floor" loading="lazy"></div>
-      </div>
-      <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous photo">&#8249;</button>
-      <button class="carousel-arrow next" id="carouselNext" aria-label="Next photo">&#8250;</button>
-      <div class="carousel-dots" id="carouselDots"></div>
+    <div class="work-grid">
+      <div class="work-slot fade-up"><img src="work-1.jpg" alt="Multi-tone timber floorboards freshly sanded" loading="lazy"></div>
+      <div class="work-slot fade-up"><img src="work-2.jpg" alt="Polished timber floor in open-plan kitchen" loading="lazy"></div>
+      <div class="work-slot fade-up"><img src="work-3.jpg" alt="Timber floor sanding before and after" loading="lazy"></div>
+      <div class="work-slot fade-up"><img src="work-4.jpg" alt="Finished timber floor in kitchen and hallway" loading="lazy"></div>
+      <div class="work-slot fade-up"><img src="work-5.jpg" alt="Polished herringbone parquet timber floor" loading="lazy"></div>
+      <div class="work-slot fade-up"><img src="work-6.jpg" alt="Freshly coated glossy timber floor" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -830,53 +868,6 @@
 </footer>
 
 <script>
-
-  // Our Work carousel
-  const track = document.getElementById('carouselTrack');
-  const slides = track ? Array.from(track.children) : [];
-  const dotsWrap = document.getElementById('carouselDots');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
-  let current = 0;
-  let autoplayTimer;
-
-  if (track && slides.length) {
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
-      dot.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(dot);
-    });
-    const dots = Array.from(dotsWrap.children);
-
-    function goTo(index) {
-      current = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      resetAutoplay();
-    }
-    function next(){ goTo(current + 1); }
-    function prev(){ goTo(current - 1); }
-    function resetAutoplay(){
-      clearInterval(autoplayTimer);
-      autoplayTimer = setInterval(next, 5000);
-    }
-
-    nextBtn.addEventListener('click', next);
-    prevBtn.addEventListener('click', prev);
-
-    // Touch swipe
-    let startX = 0;
-    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchend', (e) => {
-      const diff = e.changedTouches[0].clientX - startX;
-      if (diff > 40) prev();
-      else if (diff < -40) next();
-    }, {passive:true});
-
-    resetAutoplay();
-  }
 
   // In-page smooth scroll for nav & CTA buttons (JS-driven, not plain anchor links,
   // so these always scroll within the page rather than behaving like external links)
